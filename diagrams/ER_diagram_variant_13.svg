@@ -1,0 +1,264 @@
+<svg width="1280" height="920" viewBox="0 0 1280 920" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <filter id="shadow2" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="920" fill="#F8FAFC" />
+
+  <!-- Title -->
+  <text x="640" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#0F172A">ER-діаграма реляційної моделі бази даних у нотації Crow's Foot</text>
+
+  <!-- TABLE: advertisers -->
+  <g transform="translate(30, 60)" filter="url(#shadow2)">
+    <rect width="250" height="210" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <rect width="250" height="28" fill="#1E293B"/>
+    <text x="125" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">advertisers (Рекламодавці)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_advertiser: int</text>
+    <text x="32" y="64" font-size="11" fill="#334155">client_type: varchar(25)</text>
+    <text x="32" y="82" font-size="11" fill="#334155">company_name: varchar(150)</text>
+    <text x="32" y="100" font-size="11" fill="#334155">contact_person: varchar(100)</text>
+    <text x="32" y="118" font-size="11" fill="#334155">legal_code: varchar(20)</text>
+    <text x="32" y="136" font-size="11" fill="#334155">address: varchar(200)</text>
+    <text x="32" y="154" font-size="11" fill="#334155">phone: dm_phone</text>
+    <text x="32" y="172" font-size="11" fill="#334155">email: dm_email</text>
+    <text x="32" y="190" font-size="11" fill="#334155">discount_percent: numeric</text>
+  </g>
+
+  <!-- TABLE: contracts -->
+  <g transform="translate(30, 310)" filter="url(#shadow2)">
+    <rect width="250" height="175" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <rect width="250" height="28" fill="#1E293B"/>
+    <text x="125" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">contracts (Договори)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_contract: int</text>
+    <text x="8" y="64" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="64" font-size="11" fill="#1D4ED8">id_advertiser: int</text>
+    <text x="8" y="82" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="82" font-size="11" fill="#1D4ED8">id_employee: int</text>
+    <text x="32" y="100" font-size="11" fill="#334155">contract_number: varchar(30)</text>
+    <text x="32" y="118" font-size="11" fill="#334155">start_date: date</text>
+    <text x="32" y="136" font-size="11" fill="#334155">end_date: date</text>
+    <text x="32" y="154" font-size="11" fill="#334155">total_budget: dm_money</text>
+  </g>
+
+  <!-- TABLE: employees -->
+  <g transform="translate(30, 530)" filter="url(#shadow2)">
+    <rect width="250" height="175" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <rect width="250" height="28" fill="#1E293B"/>
+    <text x="125" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">employees (Співробітники)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_employee: int</text>
+    <text x="32" y="64" font-size="11" fill="#334155">full_name: varchar(100)</text>
+    <text x="32" y="82" font-size="11" fill="#334155">position: varchar(50)</text>
+    <text x="32" y="100" font-size="11" fill="#334155">phone: dm_phone</text>
+    <text x="32" y="118" font-size="11" fill="#334155">email: dm_email</text>
+    <text x="32" y="136" font-size="11" fill="#334155">hire_date: date</text>
+    <text x="32" y="154" font-size="11" fill="#334155">commission_rate: numeric</text>
+  </g>
+
+  <!-- TABLE: ad_categories -->
+  <g transform="translate(480, 50)" filter="url(#shadow2)">
+    <rect width="270" height="95" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <rect width="270" height="28" fill="#1E293B"/>
+    <text x="135" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">ad_categories (Рубрики)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_category: int</text>
+    <text x="32" y="64" font-size="11" fill="#334155">category_name: varchar(50)</text>
+    <text x="32" y="82" font-size="11" fill="#334155">is_active: boolean</text>
+  </g>
+
+  <!-- TABLE: ad_orders (Центральна сутність) -->
+  <g transform="translate(480, 180)" filter="url(#shadow2)">
+    <rect width="270" height="260" fill="#FFFFFF" stroke="#047857" stroke-width="2"/>
+    <rect width="270" height="28" fill="#047857"/>
+    <text x="135" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">ad_orders (Заявки на рекламу)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_order: int</text>
+    <text x="8" y="64" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="64" font-size="11" fill="#1D4ED8">id_contract: int (null)</text>
+    <text x="8" y="82" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="82" font-size="11" fill="#1D4ED8">id_advertiser: int</text>
+    <text x="8" y="100" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="100" font-size="11" fill="#1D4ED8">id_employee: int</text>
+    <text x="8" y="118" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="118" font-size="11" fill="#1D4ED8">id_category: int</text>
+    <text x="32" y="136" font-size="11" fill="#334155">order_number: varchar(30)</text>
+    <text x="32" y="154" font-size="11" fill="#334155">order_date: date</text>
+    <text x="32" y="172" font-size="11" fill="#334155">ad_title: varchar(150)</text>
+    <text x="32" y="190" font-size="11" fill="#334155">total_cost: dm_money</text>
+    <text x="32" y="208" font-size="11" fill="#334155">paid_amount: dm_money</text>
+    <text x="32" y="226" font-size="11" fill="#334155">payment_status: dm_payment_status</text>
+    <text x="32" y="244" font-size="11" fill="#334155">order_status: dm_order_status</text>
+  </g>
+
+  <!-- TABLE: order_items -->
+  <g transform="translate(480, 480)" filter="url(#shadow2)">
+    <rect width="270" height="210" fill="#FFFFFF" stroke="#047857" stroke-width="2"/>
+    <rect width="270" height="28" fill="#047857"/>
+    <text x="135" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">order_items (Позиції заявок)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_order_item: int</text>
+    <text x="8" y="64" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="64" font-size="11" fill="#1D4ED8">id_order: int</text>
+    <text x="8" y="82" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="82" font-size="11" fill="#1D4ED8">id_publication: int</text>
+    <text x="8" y="100" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="100" font-size="11" fill="#1D4ED8">id_placement: int</text>
+    <text x="32" y="118" font-size="11" fill="#334155">target_release_date: date</text>
+    <text x="32" y="136" font-size="11" fill="#334155">volume_units: numeric</text>
+    <text x="32" y="154" font-size="11" fill="#334155">applied_price_per_unit: dm_money</text>
+    <text x="32" y="172" font-size="11" fill="#334155">calculated_cost: dm_money</text>
+    <text x="32" y="190" font-size="11" fill="#334155">is_urgent: boolean</text>
+  </g>
+
+  <!-- TABLE: payments -->
+  <g transform="translate(480, 730)" filter="url(#shadow2)">
+    <rect width="270" height="170" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <rect width="270" height="28" fill="#1E293B"/>
+    <text x="135" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">payments (Платежі)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_payment: int</text>
+    <text x="8" y="64" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="64" font-size="11" fill="#1D4ED8">id_order: int</text>
+    <text x="8" y="82" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="82" font-size="11" fill="#1D4ED8">processed_by_employee: int</text>
+    <text x="32" y="100" font-size="11" fill="#334155">payment_number: varchar(30)</text>
+    <text x="32" y="118" font-size="11" fill="#334155">payment_date: timestamp</text>
+    <text x="32" y="136" font-size="11" fill="#334155">payment_amount: dm_money</text>
+    <text x="32" y="154" font-size="11" fill="#334155">payment_type: varchar(30)</text>
+  </g>
+
+  <!-- TABLE: publication_types -->
+  <g transform="translate(930, 50)" filter="url(#shadow2)">
+    <rect width="280" height="110" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <rect width="280" height="28" fill="#1E293B"/>
+    <text x="140" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">publication_types (Типи видань)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_publication_type: int</text>
+    <text x="32" y="64" font-size="11" fill="#334155">type_name: varchar(50)</text>
+    <text x="32" y="82" font-size="11" fill="#334155">base_coefficient: numeric</text>
+  </g>
+
+  <!-- TABLE: publications -->
+  <g transform="translate(930, 200)" filter="url(#shadow2)">
+    <rect width="280" height="210" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <rect width="280" height="28" fill="#1E293B"/>
+    <text x="140" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">publications (Рекламні видання)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_publication: int</text>
+    <text x="8" y="64" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="64" font-size="11" fill="#1D4ED8">id_publication_type: int</text>
+    <text x="32" y="82" font-size="11" fill="#334155">publication_name: varchar(100)</text>
+    <text x="32" y="100" font-size="11" fill="#334155">periodicity: varchar(50)</text>
+    <text x="32" y="118" font-size="11" fill="#334155">circulation: int</text>
+    <text x="32" y="136" font-size="11" fill="#334155">format_size: varchar(20)</text>
+    <text x="32" y="154" font-size="11" fill="#334155">contact_phone: dm_phone</text>
+    <text x="32" y="172" font-size="11" fill="#334155">rating_score: numeric</text>
+  </g>
+
+  <!-- TABLE: ad_placements -->
+  <g transform="translate(930, 460)" filter="url(#shadow2)">
+    <rect width="280" height="175" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <rect width="280" height="28" fill="#1E293B"/>
+    <text x="140" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">ad_placements (Місця та тарифи)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_placement: int</text>
+    <text x="8" y="64" font-size="11" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="32" y="64" font-size="11" fill="#1D4ED8">id_publication: int</text>
+    <text x="32" y="82" font-size="11" fill="#334155">placement_name: varchar(100)</text>
+    <text x="32" y="100" font-size="11" fill="#334155">unit_type: varchar(30)</text>
+    <text x="32" y="118" font-size="11" fill="#334155">base_price_per_unit: dm_money</text>
+    <text x="32" y="136" font-size="11" fill="#334155">color_mode: varchar(30)</text>
+  </g>
+
+  <!-- TABLE: audit_log -->
+  <g transform="translate(930, 680)" filter="url(#shadow2)">
+    <rect width="280" height="150" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <rect width="280" height="28" fill="#475569"/>
+    <text x="140" y="19" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">audit_log (Журнал аудиту)</text>
+    <text x="8" y="46" font-size="11" font-weight="bold" fill="#DC2626">PK</text>
+    <text x="32" y="46" font-size="11" font-weight="bold" fill="#0F172A">id_log: int</text>
+    <text x="32" y="64" font-size="11" fill="#334155">table_name: varchar(50)</text>
+    <text x="32" y="82" font-size="11" fill="#334155">operation_type: varchar(15)</text>
+    <text x="32" y="100" font-size="11" fill="#334155">record_id: int</text>
+    <text x="32" y="118" font-size="11" fill="#334155">changed_at: timestamp</text>
+  </g>
+
+  <!-- CROW'S FOOT RELATIONSHIP CONNECTORS -->
+  <!-- 1. advertisers to ad_orders (One-to-Many) -->
+  <path d="M 280,165 H 480" stroke="#0F172A" stroke-width="1.8" fill="none"/>
+  <!-- One side (| |) at x=290 -->
+  <line x1="290" y1="158" x2="290" y2="172" stroke="#0F172A" stroke-width="2"/>
+  <line x1="296" y1="158" x2="296" y2="172" stroke="#0F172A" stroke-width="2"/>
+  <!-- Many side (Crow's foot) at x=480 -->
+  <line x1="470" y1="157" x2="480" y2="165" stroke="#0F172A" stroke-width="2"/>
+  <line x1="470" y1="173" x2="480" y2="165" stroke="#0F172A" stroke-width="2"/>
+  <line x1="465" y1="158" x2="465" y2="172" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- 2. contracts to ad_orders (Zero-or-One to Many) -->
+  <path d="M 280,380 H 370 V 270 H 480" stroke="#0F172A" stroke-width="1.8" fill="none"/>
+  <circle cx="295" cy="380" r="4" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+  <line x1="305" y1="373" x2="305" y2="387" stroke="#0F172A" stroke-width="2"/>
+  <line x1="470" y1="262" x2="480" y2="270" stroke="#0F172A" stroke-width="2"/>
+  <line x1="470" y1="278" x2="480" y2="270" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- 3. employees to ad_orders (One to Many) -->
+  <path d="M 280,600 H 390 V 330 H 480" stroke="#0F172A" stroke-width="1.8" fill="none"/>
+  <line x1="290" y1="593" x2="290" y2="607" stroke="#0F172A" stroke-width="2"/>
+  <line x1="296" y1="593" x2="296" y2="607" stroke="#0F172A" stroke-width="2"/>
+  <line x1="470" y1="322" x2="480" y2="330" stroke="#0F172A" stroke-width="2"/>
+  <line x1="470" y1="338" x2="480" y2="330" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- 4. ad_categories to ad_orders (One to Many) -->
+  <line x1="615" y1="145" x2="615" y2="180" stroke="#0F172A" stroke-width="1.8"/>
+  <line x1="608" y1="155" x2="622" y2="155" stroke="#0F172A" stroke-width="2"/>
+  <line x1="608" y1="160" x2="622" y2="160" stroke="#0F172A" stroke-width="2"/>
+  <line x1="607" y1="172" x2="615" y2="180" stroke="#0F172A" stroke-width="2"/>
+  <line x1="623" y1="172" x2="615" y2="180" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- 5. ad_orders to order_items (One to Many, CASCADE) -->
+  <line x1="615" y1="440" x2="615" y2="480" stroke="#0F172A" stroke-width="2"/>
+  <line x1="608" y1="450" x2="622" y2="450" stroke="#0F172A" stroke-width="2"/>
+  <line x1="608" y1="456" x2="622" y2="456" stroke="#0F172A" stroke-width="2"/>
+  <line x1="607" y1="472" x2="615" y2="480" stroke="#0F172A" stroke-width="2"/>
+  <line x1="623" y1="472" x2="615" y2="480" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- 6. ad_orders to payments (One to Many) -->
+  <path d="M 530,440 V 730" stroke="#0F172A" stroke-width="1.8" fill="none"/>
+  <line x1="523" y1="455" x2="537" y2="455" stroke="#0F172A" stroke-width="2"/>
+  <circle cx="530" cy="718" r="4" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+  <line x1="522" y1="722" x2="530" y2="730" stroke="#0F172A" stroke-width="2"/>
+  <line x1="538" y1="722" x2="530" y2="730" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- 7. publication_types to publications (One to Many) -->
+  <line x1="1070" y1="160" x2="1070" y2="200" stroke="#0F172A" stroke-width="1.8"/>
+  <line x1="1063" y1="170" x2="1077" y2="170" stroke="#0F172A" stroke-width="2"/>
+  <line x1="1063" y1="176" x2="1077" y2="176" stroke="#0F172A" stroke-width="2"/>
+  <line x1="1062" y1="192" x2="1070" y2="200" stroke="#0F172A" stroke-width="2"/>
+  <line x1="1078" y1="192" x2="1070" y2="200" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- 8. publications to ad_placements (One to Many) -->
+  <line x1="1070" y1="410" x2="1070" y2="460" stroke="#0F172A" stroke-width="1.8"/>
+  <line x1="1063" y1="422" x2="1077" y2="422" stroke="#0F172A" stroke-width="2"/>
+  <line x1="1063" y1="428" x2="1077" y2="428" stroke="#0F172A" stroke-width="2"/>
+  <line x1="1062" y1="452" x2="1070" y2="460" stroke="#0F172A" stroke-width="2"/>
+  <line x1="1078" y1="452" x2="1070" y2="460" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- 9. publications to order_items (One to Many) -->
+  <path d="M 930,305 H 810 V 530 H 750" stroke="#0F172A" stroke-width="1.8" fill="none"/>
+  <line x1="915" y1="298" x2="915" y2="312" stroke="#0F172A" stroke-width="2"/>
+  <line x1="921" y1="298" x2="921" y2="312" stroke="#0F172A" stroke-width="2"/>
+  <line x1="760" y1="522" x2="750" y2="530" stroke="#0F172A" stroke-width="2"/>
+  <line x1="760" y1="538" x2="750" y2="530" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- 10. ad_placements to order_items (One to Many) -->
+  <path d="M 930,550 H 750" stroke="#0F172A" stroke-width="1.8" fill="none"/>
+  <line x1="915" y1="543" x2="915" y2="557" stroke="#0F172A" stroke-width="2"/>
+  <line x1="921" y1="543" x2="921" y2="557" stroke="#0F172A" stroke-width="2"/>
+  <line x1="760" y1="542" x2="750" y2="550" stroke="#0F172A" stroke-width="2"/>
+  <line x1="760" y1="558" x2="750" y2="550" stroke="#0F172A" stroke-width="2"/>
+</svg>

@@ -1,0 +1,19 @@
+# OS Files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Office temporary files
+~$*.docx
+~$*.pptx
+*.tmp
+
+# Python artifacts
+__pycache__/
+*.pyc

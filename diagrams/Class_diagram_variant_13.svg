@@ -1,0 +1,216 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.15" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#F8FAFC" />
+
+  <!-- Title -->
+  <text x="600" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#0F172A">Діаграма класів концептуальної моделі рекламного агентства</text>
+
+  <!-- CLASS 1: Advertiser -->
+  <g transform="translate(40, 70)" filter="url(#shadow)">
+    <rect width="260" height="185" rx="5" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <path d="M 0,0 H 260 V 30 H 0 Z" fill="#2563EB" />
+    <text x="130" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">Advertiser (Рекламодавець)</text>
+    <text x="12" y="48" font-size="11" fill="#1E293B">- id_advertiser: int</text>
+    <text x="12" y="64" font-size="11" fill="#1E293B">- client_type: string</text>
+    <text x="12" y="80" font-size="11" fill="#1E293B">- company_name: string</text>
+    <text x="12" y="96" font-size="11" fill="#1E293B">- contact_person: string</text>
+    <text x="12" y="112" font-size="11" fill="#1E293B">- legal_code: string</text>
+    <text x="12" y="128" font-size="11" fill="#1E293B">- phone: string</text>
+    <text x="12" y="144" font-size="11" fill="#1E293B">- discount_percent: float</text>
+    <line x1="0" y1="152" x2="260" y2="152" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="12" y="168" font-size="11" fill="#047857">+ register(), updateData()</text>
+  </g>
+
+  <!-- CLASS 2: Contract -->
+  <g transform="translate(40, 310)" filter="url(#shadow)">
+    <rect width="260" height="155" rx="5" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <path d="M 0,0 H 260 V 30 H 0 Z" fill="#2563EB" />
+    <text x="130" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">Contract (Договір)</text>
+    <text x="12" y="48" font-size="11" fill="#1E293B">- id_contract: int</text>
+    <text x="12" y="64" font-size="11" fill="#1E293B">- contract_number: string</text>
+    <text x="12" y="80" font-size="11" fill="#1E293B">- start_date: date</text>
+    <text x="12" y="96" font-size="11" fill="#1E293B">- end_date: date</text>
+    <text x="12" y="112" font-size="11" fill="#1E293B">- total_budget: money</text>
+    <text x="12" y="128" font-size="11" fill="#1E293B">- contract_status: string</text>
+    <line x1="0" y1="134" x2="260" y2="134" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="12" y="148" font-size="11" fill="#047857">+ signContract(), close()</text>
+  </g>
+
+  <!-- CLASS 3: Employee -->
+  <g transform="translate(40, 520)" filter="url(#shadow)">
+    <rect width="260" height="155" rx="5" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <path d="M 0,0 H 260 V 30 H 0 Z" fill="#2563EB" />
+    <text x="130" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">Employee (Співробітник)</text>
+    <text x="12" y="48" font-size="11" fill="#1E293B">- id_employee: int</text>
+    <text x="12" y="64" font-size="11" fill="#1E293B">- full_name: string</text>
+    <text x="12" y="80" font-size="11" fill="#1E293B">- position: string</text>
+    <text x="12" y="96" font-size="11" fill="#1E293B">- phone: string</text>
+    <text x="12" y="112" font-size="11" fill="#1E293B">- hire_date: date</text>
+    <text x="12" y="128" font-size="11" fill="#1E293B">- commission_rate: float</text>
+    <line x1="0" y1="134" x2="260" y2="134" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="12" y="148" font-size="11" fill="#047857">+ createOrder(), getSales()</text>
+  </g>
+
+  <!-- CLASS 4: AdOrder (Центральний клас) -->
+  <g transform="translate(460, 180)" filter="url(#shadow)">
+    <rect width="280" height="235" rx="5" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
+    <path d="M 0,0 H 280 V 30 H 0 Z" fill="#0D9488" />
+    <text x="140" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">AdOrder (Заявка на рекламу)</text>
+    <text x="12" y="48" font-size="11" fill="#1E293B">- id_order: int</text>
+    <text x="12" y="64" font-size="11" fill="#1E293B">- order_number: string</text>
+    <text x="12" y="80" font-size="11" fill="#1E293B">- order_date: date</text>
+    <text x="12" y="96" font-size="11" fill="#1E293B">- ad_title: string</text>
+    <text x="12" y="112" font-size="11" fill="#1E293B">- ad_content_text: string</text>
+    <text x="12" y="128" font-size="11" fill="#1E293B">- total_cost: money</text>
+    <text x="12" y="144" font-size="11" fill="#1E293B">- paid_amount: money</text>
+    <text x="12" y="160" font-size="11" fill="#1E293B">- payment_status: string</text>
+    <text x="12" y="176" font-size="11" fill="#1E293B">- order_status: string</text>
+    <line x1="0" y1="185" x2="280" y2="185" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="12" y="203" font-size="11" fill="#047857">+ calculateTotal()</text>
+    <text x="12" y="221" font-size="11" fill="#047857">+ updateStatus(), cancelOrder()</text>
+  </g>
+
+  <!-- CLASS 5: OrderItem -->
+  <g transform="translate(460, 480)" filter="url(#shadow)">
+    <rect width="280" height="195" rx="5" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
+    <path d="M 0,0 H 280 V 30 H 0 Z" fill="#0D9488" />
+    <text x="140" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">OrderItem (Публікація / Вихід)</text>
+    <text x="12" y="48" font-size="11" fill="#1E293B">- id_order_item: int</text>
+    <text x="12" y="64" font-size="11" fill="#1E293B">- target_release_date: date</text>
+    <text x="12" y="80" font-size="11" fill="#1E293B">- volume_units: float</text>
+    <text x="12" y="96" font-size="11" fill="#1E293B">- applied_price_per_unit: money</text>
+    <text x="12" y="112" font-size="11" fill="#1E293B">- calculated_cost: money</text>
+    <text x="12" y="128" font-size="11" fill="#1E293B">- is_urgent: bool</text>
+    <text x="12" y="144" font-size="11" fill="#1E293B">- publication_status: string</text>
+    <line x1="0" y1="152" x2="280" y2="152" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="12" y="170" font-size="11" fill="#047857">+ calculateCost()</text>
+    <text x="12" y="186" font-size="11" fill="#047857">+ confirmRelease()</text>
+  </g>
+
+  <!-- CLASS 6: Payment -->
+  <g transform="translate(460, 715)" filter="url(#shadow)">
+    <rect width="280" height="150" rx="5" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <path d="M 0,0 H 280 V 30 H 0 Z" fill="#2563EB" />
+    <text x="140" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">Payment (Платіж / Оплата)</text>
+    <text x="12" y="48" font-size="11" fill="#1E293B">- id_payment: int</text>
+    <text x="12" y="64" font-size="11" fill="#1E293B">- payment_number: string</text>
+    <text x="12" y="80" font-size="11" fill="#1E293B">- payment_date: timestamp</text>
+    <text x="12" y="96" font-size="11" fill="#1E293B">- payment_amount: money</text>
+    <text x="12" y="112" font-size="11" fill="#1E293B">- payment_type: string</text>
+    <line x1="0" y1="120" x2="280" y2="120" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="12" y="138" font-size="11" fill="#047857">+ process(), printReceipt()</text>
+  </g>
+
+  <!-- CLASS 7: Publication -->
+  <g transform="translate(890, 180)" filter="url(#shadow)">
+    <rect width="270" height="190" rx="5" fill="#FFFFFF" stroke="#4F46E5" stroke-width="2"/>
+    <path d="M 0,0 H 270 V 30 H 0 Z" fill="#4F46E5" />
+    <text x="135" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">Publication (Рекламне видання)</text>
+    <text x="12" y="48" font-size="11" fill="#1E293B">- id_publication: int</text>
+    <text x="12" y="64" font-size="11" fill="#1E293B">- publication_name: string</text>
+    <text x="12" y="80" font-size="11" fill="#1E293B">- periodicity: string</text>
+    <text x="12" y="96" font-size="11" fill="#1E293B">- circulation: int</text>
+    <text x="12" y="112" font-size="11" fill="#1E293B">- format_size: string</text>
+    <text x="12" y="128" font-size="11" fill="#1E293B">- contact_phone: string</text>
+    <text x="12" y="144" font-size="11" fill="#1E293B">- rating_score: float</text>
+    <line x1="0" y1="152" x2="270" y2="152" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="12" y="170" font-size="11" fill="#047857">+ getPlacements(), getCirc()</text>
+  </g>
+
+  <!-- CLASS 8: AdPlacement -->
+  <g transform="translate(890, 440)" filter="url(#shadow)">
+    <rect width="270" height="160" rx="5" fill="#FFFFFF" stroke="#4F46E5" stroke-width="2"/>
+    <path d="M 0,0 H 270 V 30 H 0 Z" fill="#4F46E5" />
+    <text x="135" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">AdPlacement (Місце розміщення)</text>
+    <text x="12" y="48" font-size="11" fill="#1E293B">- id_placement: int</text>
+    <text x="12" y="64" font-size="11" fill="#1E293B">- placement_name: string</text>
+    <text x="12" y="80" font-size="11" fill="#1E293B">- unit_type: string</text>
+    <text x="12" y="96" font-size="11" fill="#1E293B">- base_price_per_unit: money</text>
+    <text x="12" y="112" font-size="11" fill="#1E293B">- color_mode: string</text>
+    <line x1="0" y1="122" x2="270" y2="122" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="12" y="142" font-size="11" fill="#047857">+ getTariff(), checkLimit()</text>
+  </g>
+
+  <!-- CLASS 9: PublicationType -->
+  <g transform="translate(890, 40)" filter="url(#shadow)">
+    <rect width="270" height="105" rx="5" fill="#FFFFFF" stroke="#4F46E5" stroke-width="2"/>
+    <path d="M 0,0 H 270 V 30 H 0 Z" fill="#4F46E5" />
+    <text x="135" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">PublicationType (Тип видання)</text>
+    <text x="12" y="48" font-size="11" fill="#1E293B">- id_publication_type: int</text>
+    <text x="12" y="64" font-size="11" fill="#1E293B">- type_name: string</text>
+    <text x="12" y="80" font-size="11" fill="#1E293B">- base_coefficient: float</text>
+  </g>
+
+  <!-- CLASS 10: AdCategory -->
+  <g transform="translate(460, 50)" filter="url(#shadow)">
+    <rect width="280" height="95" rx="5" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
+    <path d="M 0,0 H 280 V 30 H 0 Z" fill="#0D9488" />
+    <text x="140" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">AdCategory (Рубрика реклами)</text>
+    <text x="12" y="48" font-size="11" fill="#1E293B">- id_category: int</text>
+    <text x="12" y="64" font-size="11" fill="#1E293B">- category_name: string</text>
+    <text x="12" y="80" font-size="11" fill="#1E293B">- is_active: bool</text>
+  </g>
+
+  <!-- RELATIONSHIPS / LINES -->
+  <!-- Advertiser to Contract (1 to 0..*) -->
+  <line x1="170" y1="255" x2="170" y2="310" stroke="#334155" stroke-width="1.5" />
+  <text x="180" y="275" font-size="11" fill="#334155">1</text>
+  <text x="180" y="300" font-size="11" fill="#334155">0..*</text>
+
+  <!-- Advertiser to AdOrder (1 to 1..*) -->
+  <path d="M 300,140 H 460" stroke="#334155" stroke-width="1.5" />
+  <text x="310" y="130" font-size="11" fill="#334155">1 (подає)</text>
+  <text x="420" y="130" font-size="11" fill="#334155">1..*</text>
+
+  <!-- Contract to AdOrder (0..1 to 0..*) -->
+  <path d="M 300,370 H 380 V 270 H 460" fill="none" stroke="#334155" stroke-width="1.5" />
+  <text x="310" y="360" font-size="11" fill="#334155">0..1 (регламентує)</text>
+  <text x="410" y="260" font-size="11" fill="#334155">0..*</text>
+
+  <!-- Employee to AdOrder (1 to 0..*) -->
+  <path d="M 300,580 H 390 V 350 H 460" fill="none" stroke="#334155" stroke-width="1.5" />
+  <text x="310" y="570" font-size="11" fill="#334155">1 (оформлює)</text>
+  <text x="410" y="340" font-size="11" fill="#334155">0..*</text>
+
+  <!-- AdOrder to OrderItem (1 to 1..*) Composition -->
+  <line x1="600" y1="415" x2="600" y2="480" stroke="#334155" stroke-width="2" />
+  <polygon points="600,415 595,425 600,435 605,425" fill="#334155"/>
+  <text x="610" y="445" font-size="11" fill="#334155">1 містить 1..*</text>
+
+  <!-- AdOrder to Payment (1 to 0..*) -->
+  <line x1="530" y1="415" x2="530" y2="715" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="540" y="700" font-size="11" fill="#334155">0..* (оплачує)</text>
+
+  <!-- PublicationType to Publication (1 to 0..*) -->
+  <line x1="1025" y1="145" x2="1025" y2="180" stroke="#334155" stroke-width="1.5" />
+  <text x="1035" y="160" font-size="11" fill="#334155">1</text>
+  <text x="1035" y="175" font-size="11" fill="#334155">0..*</text>
+
+  <!-- Publication to AdPlacement (1 to 1..*) -->
+  <line x1="1025" y1="370" x2="1025" y2="440" stroke="#334155" stroke-width="1.5" />
+  <text x="1035" y="390" font-size="11" fill="#334155">1 пропонує</text>
+  <text x="1035" y="430" font-size="11" fill="#334155">1..*</text>
+
+  <!-- Publication to OrderItem (1 to 0..*) -->
+  <path d="M 890,260 H 800 V 520 H 740" fill="none" stroke="#334155" stroke-width="1.5" />
+  <text x="810" y="250" font-size="11" fill="#334155">1 (друкує)</text>
+  <text x="750" y="510" font-size="11" fill="#334155">0..*</text>
+
+  <!-- AdPlacement to OrderItem (1 to 0..*) -->
+  <path d="M 890,550 H 740" fill="none" stroke="#334155" stroke-width="1.5" />
+  <text x="800" y="540" font-size="11" fill="#334155">1 визначає тариф</text>
+  <text x="750" y="565" font-size="11" fill="#334155">0..*</text>
+
+  <!-- AdCategory to AdOrder (1 to 0..*) -->
+  <line x1="600" y1="145" x2="600" y2="180" stroke="#334155" stroke-width="1.5" />
+  <text x="610" y="165" font-size="11" fill="#334155">1 класифікує 0..*</text>
+</svg>
